@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Panel Izquierdo: Formulario (Crear / Editar) -->
+        <aside class="sidebar">
+            <h2 id="form-title">⚡ Nueva Tarea</h2>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                
+                <div class="input-group">
+                    <label for="task-title">Título</label>
+                    <input type="text" id="task-title" required placeholder="Ej. Estudiar JS">
+                </div>
+
+                <div class="input-group">
+                    <label for="task-desc">Descripción</label>
+                    <textarea id="task-desc" rows="3" placeholder="Detalles de la tarea..."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="task-priority">Prioridad</label>
+                    <select id="task-priority">
+                        <option value="baja">🟢 Baja</option>
+                        <option value="media">🟡 Media</option>
+                        <option value="alta">🔴 Alta</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn-primary">Guardar Tarea</button>
+                <button type="button" id="cancel-btn" class="btn-secondary hidden">Cancelar</button>
+            </form>
+        </aside>
+
+        <!-- Panel Derecho: Tablero Visual (Leer, Actualizar Estado, Eliminar) -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Mi control de tareas</h1>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Todas</button>
+                    <button class="filter-btn" data-filter="alta">Altas</button>
+                    <button class="filter-btn" data-filter="completada">Completadas</button>
+                </div>
+            </header>
+
+            <section id="task-board" class="task-grid">
+                <!-- Las tareas se inyectarán aquí con JavaScript -->
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
